@@ -1,0 +1,33 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner ll = new Scanner(System.in);
+//กำหนดอาร์เรย์ grade ที่มค่า {'A', 'B', 'C', 'D', 'F'}
+        char[] grade = {'A', 'B', 'C', 'D', 'F'};
+//กำหนดค่าอาร์เรย์ point เพื่อเก็บคะแนนของเกรดในตำแหน่งเดียวกันกับอาร์เรย์เกรด
+        double[] point = {4, 3, 2, 1, 0};
+//ป้อนค่าเกรด
+        String input = ll.next();
+//ลูปเทียบค่า input กับเกรด
+        for (int i = 0; i < grade.length; i++) {
+//สร้างตัวแปร gd เท่ากับ input ที่ไม่มีค่า +- มาเกี่ยวข้อง
+            char gd = input.charAt(0);
+
+//ถ้าตัวแปร gd เท่ากับเกรดตำแหน่งที่ i ให้ตรวจสอบในขั้นตอนต่อไป
+            if (gd == grade[i]) {
+//ถ้า input ที่รับเข้ามามี +- มาเกียวข้อง
+                if (input.length() > 1) {
+                    char pm = input.charAt(1);
+                    if (pm == '+') {
+                        System.out.println(point[i] + 0.3);
+                    } else if (pm == '-') {
+                        System.out.println(point[i] - 0.3);
+                    }
+                }else {
+                    System.out.println(point[i]);
+                }
+            }
+        }
+    }
+}
